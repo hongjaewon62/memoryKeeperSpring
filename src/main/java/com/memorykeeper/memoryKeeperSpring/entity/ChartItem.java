@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "chart_items")
-public class ChartItem {
+public class ChartItem {        // 메인 차트 아이템
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

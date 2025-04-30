@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "charts")
-public class Chart {
+public class Chart {        // 메인 차트
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
