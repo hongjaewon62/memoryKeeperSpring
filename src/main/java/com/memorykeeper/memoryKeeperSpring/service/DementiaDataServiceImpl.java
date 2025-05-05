@@ -24,4 +24,35 @@ public class DementiaDataServiceImpl implements DementiaDataService {
                 .map(DementiaDataResponse::fromEntity)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<DementiaDataResponse> findBySearch(int year, String si, String sigungu, String gender, String chartTitle) {
+        List<DementiaData> dataList = dementiaDataRepository.findBySearch(
+                year,
+                (si == null || si.isEmpty()) ? null : si,
+                (sigungu == null || sigungu.isEmpty()) ? null : sigungu,
+                (gender == null || gender.isEmpty() || gender.equals("all")) ? null : gender
+        );
+
+        return dataList.stream().map(data -> {
+            DementiaDataResponse dto = new DementiaDataResponse();
+            dto.setYear(data.getYear());
+            dto.setSi(data.getSi());
+            dto.setSigungu(data.getSigungu());
+            dto.setGender(data.getGender());
+            dto.setAgegroup(data.getAgegroup());
+
+            switch (chartTitle) {
+                case "치매 환자 수" -> dto.setDementia_patients(data.getDementiaPatients());
+                case "치매 유병률" -> dto.setPrevalence_rate(data.getPrevalenceRate());
+                case "경도 환자 수" -> dto.setVery_mild_cases(data.getVeryMildCases());
+                case "중등도 환자 수" -> dto.setModerate_cases(data.getModerateCases());
+                case "중증 환자 수" -> dto.setSevere_cases(data.getSevereCases());
+                case "경도인지장애 환자 수" -> dto.setMci_patients(data.getMciPatients());
+                case "경도인지장애 유병률" -> dto.setMci_prevalence_rate(data.getMciPrevalenceRate());
+                default -> dto.setDementia_patients(data.getDementiaPatients());
+            }
+            return dto;
+        }).collect(Collectors.toList());
+    }
 }

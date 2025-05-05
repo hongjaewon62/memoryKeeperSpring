@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface DementiaDataService {
     List<DementiaDataResponse> findByYear(int year);
+    List<DementiaDataResponse> findBySearch(int year, String si, String sigungu, String gender, String chartTitle);
 }

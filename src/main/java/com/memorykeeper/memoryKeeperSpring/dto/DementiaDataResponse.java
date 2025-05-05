@@ -1,5 +1,6 @@
 package com.memorykeeper.memoryKeeperSpring.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.memorykeeper.memoryKeeperSpring.entity.DementiaData;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
@@ -10,20 +11,21 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 @ToString
 @Slf4j
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)       // 0인값 제거
 public class DementiaDataResponse {
     private int year;
     private String si;
     private String sigungu;
     private String gender;
     private String agegroup;
-    private int population;
-    private int dementia_patients;
+    private double population;
+    private double dementia_patients;
     private double prevalence_rate;
-    private int very_mild_cases;
-    private int mild_cases;
-    private int moderate_cases;
-    private int severe_cases;
-    private int mci_patients;
+    private double very_mild_cases;
+    private double mild_cases;
+    private double moderate_cases;
+    private double severe_cases;
+    private double mci_patients;
     private double mci_prevalence_rate;
 
     public DementiaData toEntity() {

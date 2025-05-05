@@ -18,24 +18,23 @@ public class DementiaData {
     private String sigungu;
     private String gender;
     private String agegroup;
-    private Integer population;
-    private Integer dementiaPatients;
+    private Double population;
+    private Double dementiaPatients;
     private Double prevalenceRate;
-    private Integer veryMildCases;
-    private Integer mildCases;
-    private Integer moderateCases;
-    private Integer severeCases;
-    private Integer mciPatients;
+    private Double veryMildCases;
+    private Double mildCases;
+    private Double moderateCases;
+    private Double severeCases;
+    private Double mciPatients;
     private Double mciPrevalenceRate;
 
-    public DementiaData() {
+    public DementiaData() {}
 
-    }
     public DementiaData(
         int year, String si, String sigungu, String gender, String agegroup,
-        int population, int dementiaPatients, double prevalenceRate,
-        int veryMildCases, int mildCases, int moderateCases, int severeCases,
-        int mciPatients, double mciPrevalenceRate) {
+        double population, double dementiaPatients, double prevalenceRate,
+        double veryMildCases, double mildCases, double moderateCases, double severeCases,
+        double mciPatients, double mciPrevalenceRate) {
         this.year = year;
         this.si = si;
         this.sigungu = sigungu;
