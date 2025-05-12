@@ -44,12 +44,13 @@ public class DementiaDataServiceImpl implements DementiaDataService {
 
             switch (chartTitle) {
                 case "치매 환자 수" -> dto.setDementia_patients(data.getDementiaPatients());
-                case "치매 유병률" -> dto.setPrevalence_rate(data.getPrevalenceRate());
-                case "경도 환자 수" -> dto.setVery_mild_cases(data.getVeryMildCases());
-                case "중등도 환자 수" -> dto.setModerate_cases(data.getModerateCases());
-                case "중증 환자 수" -> dto.setSevere_cases(data.getSevereCases());
-                case "경도인지장애 환자 수" -> dto.setMci_patients(data.getMciPatients());
-                case "경도인지장애 유병률" -> dto.setMci_prevalence_rate(data.getMciPrevalenceRate());
+                case "노인 인구수" -> dto.setPopulation(data.getPopulation());
+                case "치매 환자 유병률" -> dto.setPrevalence_rate(data.getPrevalenceRate());
+                case "경도환자수" -> dto.setMild_cases(data.getMildCases());
+                case "중등도 환자수" -> dto.setModerate_cases(data.getModerateCases());
+                case "중증 환자수" -> dto.setSevere_cases(data.getSevereCases());
+                case "경도인지 장애 환자수" -> dto.setMci_patients(data.getMciPatients());
+                case "경도인지장애 환자 유병률" -> dto.setMci_prevalence_rate(data.getMciPrevalenceRate());
                 default -> dto.setDementia_patients(data.getDementiaPatients());
             }
             return dto;

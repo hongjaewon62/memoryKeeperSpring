@@ -7,7 +7,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "statistics")
+@Table(name = "dementiadata")
 public class DementiaData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,6 @@ public class DementiaData {
     private Double population;
     private Double dementiaPatients;
     private Double prevalenceRate;
-    private Double veryMildCases;
     private Double mildCases;
     private Double moderateCases;
     private Double severeCases;
@@ -32,8 +31,7 @@ public class DementiaData {
 
     public DementiaData(
         int year, String si, String sigungu, String gender, String agegroup,
-        double population, double dementiaPatients, double prevalenceRate,
-        double veryMildCases, double mildCases, double moderateCases, double severeCases,
+        double population, double dementiaPatients, double prevalenceRate, double mildCases, double moderateCases, double severeCases,
         double mciPatients, double mciPrevalenceRate) {
         this.year = year;
         this.si = si;
@@ -43,7 +41,6 @@ public class DementiaData {
         this.population = population;
         this.dementiaPatients = dementiaPatients;
         this.prevalenceRate = prevalenceRate;
-        this.veryMildCases = veryMildCases;
         this.mildCases = mildCases;
         this.moderateCases = moderateCases;
         this.severeCases = severeCases;

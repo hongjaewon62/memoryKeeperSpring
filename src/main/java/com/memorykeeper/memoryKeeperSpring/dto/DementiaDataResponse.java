@@ -21,7 +21,6 @@ public class DementiaDataResponse {
     private double population;
     private double dementia_patients;
     private double prevalence_rate;
-    private double very_mild_cases;
     private double mild_cases;
     private double moderate_cases;
     private double severe_cases;
@@ -30,8 +29,7 @@ public class DementiaDataResponse {
 
     public DementiaData toEntity() {
         return new DementiaData(year, si, sigungu, gender, agegroup,
-            population, dementia_patients, prevalence_rate,
-            very_mild_cases, mild_cases, moderate_cases,
+            population, dementia_patients, prevalence_rate, mild_cases, moderate_cases,
             severe_cases, mci_patients, mci_prevalence_rate);
     }
 
@@ -45,7 +43,6 @@ public class DementiaDataResponse {
         dto.setPopulation(entity.getPopulation());
         dto.setDementia_patients(entity.getDementiaPatients());
         dto.setPrevalence_rate(entity.getPrevalenceRate());
-        dto.setVery_mild_cases(entity.getVeryMildCases());
         dto.setMild_cases(entity.getMildCases());
         dto.setModerate_cases(entity.getModerateCases());
         dto.setSevere_cases(entity.getSevereCases());
