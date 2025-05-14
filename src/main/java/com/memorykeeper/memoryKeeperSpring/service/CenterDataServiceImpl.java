@@ -25,7 +25,13 @@ public class CenterDataServiceImpl implements CenterDataService{
 
     @Override
     public List<CenterDataResponse> findBySearch(String roadnameaddress, String name) {
-        return null;
+        roadnameaddress = (roadnameaddress != null && !roadnameaddress.trim().isEmpty()) ? roadnameaddress : null;
+        name = (name != null && !name.trim().isEmpty()) ? name : null;
+
+        List<CenterData> centers = centerDataRepository.searchCenters(roadnameaddress, name);
+        return centers.stream()
+                .map(CenterDataResponse::toDto)
+                .collect(Collectors.toList());
     }
 
     @Override
