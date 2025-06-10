@@ -1,6 +1,7 @@
 package com.memorykeeper.memoryKeeperSpring.dto;
 
 import com.memorykeeper.memoryKeeperSpring.entity.Border;
+import com.memorykeeper.memoryKeeperSpring.entity.User;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -19,6 +20,7 @@ public class BorderResponse {
     private LocalDateTime createdAt;
     private int viewCount;
     private boolean isFixed;
+    private Integer userId;
 
     public static BorderResponse toDto(Border border) {
         return BorderResponse.builder()
@@ -27,6 +29,7 @@ public class BorderResponse {
                 .title(border.getTitle())
                 .content(border.getContent())
                 .username(border.getUser().getUsername())
+                .userId(border.getUser().getId())
                 .createdAt(border.getCreatedAt())
                 .viewCount(border.getViewCount())
                 .isFixed(border.isFixed())

@@ -22,6 +22,19 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserResponse signUpUser(UserResponse userResponse) throws  Exception {
+
+        if (userResponse.getUsername() == null || userResponse.getUsername().trim().isEmpty()) {
+            throw new Exception("아이디를 입력해주세요.");
+        }
+
+        if (userResponse.getPassword() == null || userResponse.getPassword().trim().isEmpty()) {
+            throw new Exception("비밀번호를 입력해주세요.");
+        }
+
+        if (userResponse.getEmail() == null || userResponse.getEmail().trim().isEmpty()) {
+            throw new Exception("이메일을 입력해주세요.");
+        }
+
         if(userRepository.findByEmail(userResponse.getEmail()).isPresent()) {
             throw new Exception("이미 사용 중인 이메일입니다.");
         }
@@ -41,6 +54,13 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserResponse loginUser(String username, String password) throws Exception {
         Optional<User> userOptional = userRepository.findByUsername(username);
+        if(username == null || username.trim().isEmpty()) {
+            throw new Exception("아이디를 입력해주세요.");
+        }
+
+        if (password == null || password.trim().isEmpty()) {
+            throw new Exception("비밀번호를 입력해주세요.");
+        }
 
         if (userOptional.isEmpty()) {
             throw new Exception("사용자를 찾을 수 없습니다.");
